@@ -12,7 +12,7 @@ public class SpravcaObjednavok {
 	
 
 	public Objednavka vytvorObjednavku(Vozidlo v, Predajca p, Zakaznik z) {
-		Objednavka o = new Objednavka(1, (int) (v.getNakupnaCena()+0.2*v.getNakupnaCena()), p, null, null, v, z);
+		Objednavka o = new Objednavka(1, (int) (v.getNakupnaCena()+0.2*v.getNakupnaCena()), p, v, z);
 		return o;
 	}
 }

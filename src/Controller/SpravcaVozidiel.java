@@ -21,6 +21,8 @@ public class SpravcaVozidiel {
 			if (this.vozidla.get(i).getDruh().equals(druh) && this.vozidla.get(i).getZnacka().equals(znacka)) {
 				if (this.vozidla.get(i).getStav().equals("vporiadku")) {
 					vo.add(this.vozidla.get(i));
+				} else {
+					System.out.println("Zvolene vozidlo nieje aktualne dobrom stave, zvol si ine prosim!");
 				}
 			}
 		}

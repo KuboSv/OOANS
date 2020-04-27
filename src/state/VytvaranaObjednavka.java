@@ -10,9 +10,8 @@ public enum VytvaranaObjednavka implements StavObjednavky{
 	
 	@Override
 	public void zrus(Objednavka objednavka) {
-		System.out.println("Vytvarana objednavka bola zrusena, teraz je v stave zrusena");
 		objednavka.setStav(ZrusenaObjednavka.INSTANCE);
-		
+		System.out.printf("Vytvarana objednavka bola zrusena, teraz je v stave ZRUSENA\n");		
 	}
 
 }

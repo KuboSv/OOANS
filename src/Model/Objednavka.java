@@ -1,7 +1,6 @@
 package Model;
-import state.StavObjednavky;
-import state.VytvaranaObjednavka;
-import strategy.PlatobnaStrategia;
+import state.*;
+import strategy.*;
 
 public class Objednavka {
 
@@ -13,13 +12,12 @@ public class Objednavka {
 	private Vozidlo vozidlo;
 	private Zakaznik zakaznik;
 	
-	public Objednavka(int id, int celkovaCena, Predajca predajca, PlatobnaStrategia sposobPlatby, StavObjednavky stav,
+	public Objednavka(int id, int celkovaCena, Predajca predajca, 
 			Vozidlo vozidlo, Zakaznik zakaznik) {
 		super();
 		this.id = id;
 		this.CelkovaCena = celkovaCena;
 		this.predajca = predajca;
-		this.sposobPlatby = sposobPlatby;
 		this.stav = VytvaranaObjednavka.INSTANCE;
 		this.vozidlo = vozidlo;
 		this.zakaznik = zakaznik;
