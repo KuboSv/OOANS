@@ -1,21 +1,22 @@
 package adapter;
 
-import Model.APIDodavatela;
+import Model.APIDodavatela1;
 
 import java.util.List;
 
-public class Adapter implements Dodavatel {
+public class Adapter1 implements Dodavatel {
 
-    private APIDodavatela api;
+    private APIDodavatela1 api;
 
-    public Adapter(APIDodavatela api){
-        this.api= api;
+    public Adapter1(APIDodavatela1 api) {
+        this.api = api;
     }
 
     @Override
     public boolean VytvorObjednavku(String ean, String mnozstvo, String priezvisko) {
 
         String json = "{\"ean\":\"" + ean + "\",\"mnozstvo\":\"" + mnozstvo + "\",\"mnozstvo\":\"" + priezvisko + "\"}";
+        System.out.println("Parametre boli adaptovane pre Dodatavatela1!");
         return this.api.Objednaj(json);
     }
 
