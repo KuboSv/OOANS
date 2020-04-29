@@ -12,7 +12,7 @@ import java.util.List;
 public class Scenar03 {
     public static void main(String[] args) throws IOException {
 
-        Mechanik mechanik = new Mechanik("Jakub", "Jusko");
+        Mechanik mechanik = new Mechanik("Jakub", "Jusko",true);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
 

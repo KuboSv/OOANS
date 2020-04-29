@@ -3,6 +3,7 @@ package Controller;
 import java.util.*;
 
 import Model.Vozidlo;
+import Model.Zakaznik;
 
 public class SpravcaVozidiel {
 
@@ -47,4 +48,18 @@ public class SpravcaVozidiel {
         return dostupne;
     }
 
+    public void zaevidujVozidlo(Zakaznik zakaznik, String druh, String znacka, int cena) {
+        Vozidlo vozidlo = new Vozidlo(10,druh,znacka,"pripaveneNaKontrolu",cena,false);
+        vozidla.add(vozidlo);
+
+        //TODO vystav fakturu za vozidlo pre zakaznika
+    }
+
+    public void dokonciZaevidovanie() {
+        Vozidlo vozidlo = vozidla.get(vozidla.size()-1);
+        //handluj po mechanikoch
+        SpravcaMechanikov spravcaM = new SpravcaMechanikov();
+        spravcaM.priradVozidloMechanikovi(vozidlo);
+        System.out.println(vozidlo);
+    }
 }
