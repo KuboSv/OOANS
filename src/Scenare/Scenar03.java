@@ -17,12 +17,6 @@ public class Scenar03 {
 
 
         SpravcaAutodielov spravcaA = new SpravcaAutodielov();
-        spravcaA.pridajAutodiel(new Autodiel(1, "0123", "motorovyOlej", 5, false, "A1"));
-        spravcaA.pridajAutodiel(new Autodiel(2, "0124", "brzdovyOlej", 0, false, "A1"));
-        spravcaA.pridajAutodiel(new Autodiel(3, "0125", "Pelovyfilter", 1, true, "A2"));
-        spravcaA.pridajAutodiel(new Autodiel(4, "0126", "brzdoveDosticky", 0, true, "A3"));
-        spravcaA.pridajAutodiel(new Autodiel(5, "0127", "brzdovyKotuc", 3, true, "A3"));
-
 
         boolean koniec = false;
         while (!koniec) {

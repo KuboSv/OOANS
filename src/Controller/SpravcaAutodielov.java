@@ -9,6 +9,14 @@ import java.util.List;
 public class SpravcaAutodielov {
     private List<Autodiel> autodiely = new ArrayList<Autodiel>();
 
+    public SpravcaAutodielov(){
+        this.autodiely.add(new Autodiel(1, "0123", "motorovyOlej", 5, false, "A1"));
+        this.autodiely.add(new Autodiel(2, "0124", "brzdovyOlej", 0, false, "A1"));
+        this.autodiely.add(new Autodiel(3, "0125", "Pelovyfilter", 1, true, "A2"));
+        this.autodiely.add(new Autodiel(4, "0126", "brzdoveDosticky", 0, true, "A3"));
+        this.autodiely.add(new Autodiel(5, "0127", "brzdovyKotuc", 3, true, "A3"));
+    }
+
     public void pridajAutodiel(Autodiel autodiel) {
         this.autodiely.add(autodiel);
     }
