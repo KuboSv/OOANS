@@ -1,17 +1,11 @@
 package Scenare;
 
-import Controller.SpravcaAutodielov;
-import Controller.SpravcaObjednavaniaAutodielov;
 import Controller.SpravcaVozidiel;
-import Model.Autodiel;
-import Model.Mechanik;
-import Model.Vozidlo;
 import Model.Zakaznik;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
 
 public class Scenar04 {
     public static void main(String[] args) throws IOException {
@@ -39,20 +33,20 @@ public class Scenar04 {
 
         System.out.print("Potvrd udaje: A/N? ");
         String potvrdenie = reader.readLine();
-        if(potvrdenie.equals("N")){
+        if (potvrdenie.equals("N")) {
             return;
         }
-        spravcaV.zaevidujVozidlo(zakaznik,druh,znacka,cena);
+        spravcaV.zaevidujVozidlo(zakaznik, druh, znacka, cena);
 
 
         System.out.print("chces vystavit splnomocnenie: A/N? ");
         String splnomocnnie = reader.readLine();
-        if(potvrdenie.equals("A")){
+        if (potvrdenie.equals("A")) {
             //vystav splnomocnenie alt
         }
         System.out.print("Potvrd dokoncenie procesu: A/N? ");
         potvrdenie = reader.readLine();
-        if(potvrdenie.equals("A")){
+        if (potvrdenie.equals("A")) {
             spravcaV.dokonciZaevidovanie();
         }
 
