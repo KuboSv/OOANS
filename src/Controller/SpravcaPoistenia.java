@@ -15,7 +15,14 @@ public class SpravcaPoistenia {
 	}
 
 	public Poistenie vyhladajPoistenie(String druh) {
-		return null;
+		
+		Poistenie p = null;
+		for(int i = 0; i < poistenia.size();i++) {
+			if (poistenia.get(i).getDruh().contentEquals(druh)) {
+				p = poistenia.get(i);
+			}
+		}
+		return p;
 	}
 	
 	public void sparujVozidlo() {

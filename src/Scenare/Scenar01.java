@@ -17,7 +17,6 @@ public class Scenar01 {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
 		SpravcaObjednavok spravcaO = new SpravcaObjednavok();
 		SpravcaVozidiel spravcaV= new SpravcaVozidiel();
-		SpravcaPoistenia spravcaP= new SpravcaPoistenia();
 		
 		boolean koniec = false;
 	    while(koniec == false){
