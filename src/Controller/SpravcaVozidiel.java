@@ -8,11 +8,18 @@ public class SpravcaVozidiel {
 
 	private List<Vozidlo> vozidla = new ArrayList<Vozidlo>();
 	
-	public void pridajVozidlo(Vozidlo vozidlo) {
-		this.vozidla.add(vozidlo);
+
+	public SpravcaVozidiel() {
+		
+		this.vozidla.add(new Vozidlo(1, "SEDAN", "BMW", "voprave", 12040, false));
+		this.vozidla.add(new Vozidlo(2, "COMBI", "SKODA", "vporiadku", 9800, true));
+		this.vozidla.add(new Vozidlo(3, "SUV", "MERCEDES", "vporiadku", 6800, true));
+		this.vozidla.add(new Vozidlo(4, "SEDAN", "AUDI", "voprave", 16800, false));
+		this.vozidla.add(new Vozidlo(5, "LIFTBACK", "MACLAREN", "vporiadku", 36800, true));
+		this.vozidla.add(new Vozidlo(4, "COMBI", "SKODA", "vporiadku", 16800, true));
+		this.vozidla.add(new Vozidlo(5, "LIFTBACK", "MACLAREN", "vporiadku", 36100, true));
 	}
 
-	
 	public List<Vozidlo> vyhladajVozidlo(String druh, String znacka) {
 		
 		List<Vozidlo> vo = new ArrayList<Vozidlo>();

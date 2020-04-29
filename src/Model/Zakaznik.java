@@ -1,9 +1,30 @@
 package Model;
 
-public class Zakaznik extends Pouzivatel{
+import iterator.*;
+import observer.Observer;
+
+public class Zakaznik extends Pouzivatel  implements Observer{
+
+	private NotificationCollection notifikacie; 
 
 	public Zakaznik(String meno, String priezvisko) {
 		super(meno, priezvisko);
+		this.notifikacie = new NotificationCollection();
+	}
+	
+	public void vypisNotifikacie() {
+		Iterator iterator = notifikacie.createIterator(); 
+        System.out.println("-------NOTIFIKACIE------------"); 
+        while (iterator.hasNext()) 
+        { 
+            Notifikacia n = (Notifikacia)iterator.next(); 
+            System.out.println(n.getPredmet()+" "+n.getTelo()); 
+        } 
+	}
+
+	@Override
+	public void update(Notifikacia notif) {
+		this.notifikacie.pridajNotifikaciu(notif);
 	}
 
 }

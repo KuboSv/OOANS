@@ -1,13 +1,22 @@
 package Model;
 
-public class Vozidlo {
+import java.util.ArrayList;
+import java.util.List;
+
+import observer.Observer;
+import observer.Subject;
+
+public class Vozidlo implements Subject {
+	
 	private int id;
 	private String druh;
 	private String znacka;
 	private String stav;
 	private double nakupnaCena;
 	private boolean dostupnost;
+	private List<Observer> observery;
 	
+
 	public Vozidlo(int id, String druh, String znacka, String stav, double nakupnaCena, boolean dostupnost) {
 		this.id = id;
 		this.druh = druh;
@@ -15,8 +24,9 @@ public class Vozidlo {
 		this.stav = stav;
 		this.nakupnaCena = nakupnaCena;
 		this.dostupnost = dostupnost;
+		this.observery = new ArrayList<Observer>();
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -53,4 +63,22 @@ public class Vozidlo {
 	public void setDostupnost(boolean dostupnost) {
 		this.dostupnost = dostupnost;
 	}
+
+	@Override
+	public void register(Observer o) {
+		observery.add(o);
+	}
+
+	@Override
+	public void unregister(Observer o) {
+		observery.remove(o);
+	}
+
+	@Override
+	public void notifyAllObservers(String predmet, String telo) {
+		for(Observer follower : observery){	
+			follower.update(new Notifikacia("29.5.2020",predmet,telo));
+		}
+	}
+
 }

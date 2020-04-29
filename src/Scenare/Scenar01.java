@@ -15,21 +15,9 @@ public class Scenar01 {
 		Zakaznik zakaznik = new Zakaznik("Jakub", "Jusko");
 		Predajca predajca = new Predajca("Matus","Kovac");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
-
 		SpravcaObjednavok spravcaO = new SpravcaObjednavok();
-		
 		SpravcaVozidiel spravcaV= new SpravcaVozidiel();
-		spravcaV.pridajVozidlo(new Vozidlo(1, "SEDAN", "BMW", "voprave", 12040, false));
-		spravcaV.pridajVozidlo(new Vozidlo(2, "COMBI", "SKODA", "vporiadku", 9800, true));
-		spravcaV.pridajVozidlo(new Vozidlo(3, "SUV", "MERCEDES", "vporiadku", 6800, true));
-		spravcaV.pridajVozidlo(new Vozidlo(4, "SEDAN", "AUDI", "voprave", 16800, false));
-		spravcaV.pridajVozidlo(new Vozidlo(5, "LIFTBACK", "MACLAREN", "vporiadku", 36800, true));
-		spravcaV.pridajVozidlo(new Vozidlo(4, "COMBI", "SKODA", "vporiadku", 16800, true));
-		spravcaV.pridajVozidlo(new Vozidlo(5, "LIFTBACK", "MACLAREN", "vporiadku", 36100, true));
-		
 		SpravcaPoistenia spravcaP= new SpravcaPoistenia();
-		spravcaP.pridajPoistenia(new Poistenie(1, 0, "proti kradezi", null, 0));
-		spravcaP.pridajPoistenia(new Poistenie(2, 0, "havarijne", null, 0));
 		
 		boolean koniec = false;
 	    while(koniec == false){
@@ -58,10 +46,8 @@ public class Scenar01 {
 					
 				for (int i1 = 0; i1 < vozidla.size(); i1++) {
 					System.out.printf("ID dostupneho vozidla znacky %s a cenou %f € = %d\n",vozidla.get(i1).getZnacka(), vozidla.get(i1).getNakupnaCena(), i1+1);
-					
 				}
 				
-						
 				System.out.print("=================================================\nZadaj ID vozidla, ktore chces zavazne objednat:");
 				int vyber = Integer.parseInt(reader.readLine());
 					
@@ -76,6 +62,7 @@ public class Scenar01 {
 					// Ak bola zavazne objednana -> spravcaObjednavok.VytvorObjednavku()
 					// STATE
 					o.setStav(VytvorenaObjednavka.INSTANCE);
+					vozidla.get(vyber-1).register(zakaznik);
 					
 					// ObjednavaciFormular.VyberSposobPlatby()
 					System.out.print("Zadaj druh platby:");
@@ -100,6 +87,10 @@ public class Scenar01 {
 				} else if (potvrd.equals("N")) {
 					o.zrus();
 				}
+				System.out.println("1 den\n2 den\n...\nPo 5 dnoch keby sa objednavka spracovala, vybrane vozidlo sa stalo nedostupne");
+				o.getVozidlo().setStav("nasrot");
+				o.getVozidlo().notifyAllObservers("Havarjina udalost", "vozidlo mala nehody a nieje v dobrom stave na prenajom");
+				
 				System.out.print("\nChces znovu objednavat A/N:");
 				String znovu = reader.readLine();
 				
@@ -109,6 +100,12 @@ public class Scenar01 {
 			
 			}
 	    }
+	    
+	    zakaznik.vypisNotifikacie();
+	    
+	    
+	    
+	    
 		// Alternativny scenar
 		// ObjednavaciFormular.VyberPoistenie()
 		// spravcaPoistenia.vyhladajPoistenie()
