@@ -40,8 +40,8 @@ public class Scenar04 {
 
 
         System.out.print("chces vystavit splnomocnenie: A/N? ");
-        String splnomocnnie = reader.readLine();
-        if (potvrdenie.equals("A")) {
+        String splnomocnenie = reader.readLine();
+        if (splnomocnenie.equals("A")) {
             //vystav splnomocnenie alt
         }
         System.out.print("Potvrd dokoncenie procesu: A/N? ");
