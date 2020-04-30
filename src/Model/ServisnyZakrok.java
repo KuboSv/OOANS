@@ -16,4 +16,12 @@ public class ServisnyZakrok {
         this.vozidloId = vozidloId;
         this.opis = opis;
     }
+
+    public List<Autodiel> getAutodiely() {
+        return autodiely;
+    }
+
+    public void pridajAutodiely(Autodiel autodiel) {
+        this.autodiely.add(autodiel);
+    }
 }

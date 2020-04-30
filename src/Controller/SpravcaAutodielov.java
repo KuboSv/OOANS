@@ -10,11 +10,11 @@ public class SpravcaAutodielov {
     private List<Autodiel> autodiely = new ArrayList<Autodiel>();
 
     public SpravcaAutodielov(){
-        this.autodiely.add(new Autodiel(1, "0123", "motorovyOlej", 5, false, "A1"));
-        this.autodiely.add(new Autodiel(2, "0124", "brzdovyOlej", 0, false, "A1"));
-        this.autodiely.add(new Autodiel(3, "0125", "Pelovyfilter", 1, true, "A2"));
-        this.autodiely.add(new Autodiel(4, "0126", "brzdoveDosticky", 0, true, "A3"));
-        this.autodiely.add(new Autodiel(5, "0127", "brzdovyKotuc", 3, true, "A3"));
+        this.autodiely.add(new Autodiel(1, "0123", "motorovyOlej", 5, true, "A1", 5.54));
+        this.autodiely.add(new Autodiel(2, "0124", "brzdovaKvapalina", 0, true, "A1", 4.01));
+        this.autodiely.add(new Autodiel(3, "0125", "Pelovyfilter", 1, false, "A2", 8));
+        this.autodiely.add(new Autodiel(4, "0126", "brzdoveDosticky", 0, false, "A3", 10.99));
+        this.autodiely.add(new Autodiel(5, "0127", "brzdovyKotuc", 3, false, "A3", 20));
     }
 
     public void pridajAutodiel(Autodiel autodiel) {

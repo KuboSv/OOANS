@@ -1,22 +1,34 @@
 package Model;
 
-public class Autodiel {
+import Visitor.IPolozkyFaktury;
+import Visitor.Polozka;
+
+public class Autodiel implements Polozka {
     private int id;
     private String ean;
     private String nazov;
     private int mnozstvo;
     private boolean typ;
     private String umiestnenie;
+    private double cena;
 
-    public Autodiel(int id, String ean, String nazov, int mnozstvo, boolean typ, String umiestnenie) {
+    public Autodiel(int id, String ean, String nazov, int mnozstvo, boolean typ, String umiestnenie, double cena) {
         this.id = id;
         this.ean = ean;
         this.nazov = nazov;
         this.mnozstvo = mnozstvo;
         this.typ = typ;
         this.umiestnenie = umiestnenie;
+        this.cena = cena;
     }
 
+    public double getCena() {
+        return cena;
+    }
+
+    public void setCena(float cena) {
+        this.cena = cena;
+    }
 
     public int getId() {
         return id;
@@ -64,5 +76,10 @@ public class Autodiel {
 
     public void setUmiestnenie(String umietnenie) {
         this.umiestnenie = umietnenie;
+    }
+
+    @Override
+    public double accept(IPolozkyFaktury visitor) {
+        return visitor.visit(this);
     }
 }
