@@ -38,12 +38,12 @@ public class VystavFakturuZaDiely extends ProcesVytvoreniaFaktury {
 
 
         List<Autodiel> vsetkyAutodiely = servisnyZ.getAutodiely();
-        double total = calculatePrice(vsetkyAutodiely);
-        System.out.println("Total Cost = " + total);
+        double cena = vypocitajCenu(vsetkyAutodiely);
+        System.out.println("Celkova cena = " + cena);
         System.out.println("Boli pridane autodiely do Faktury!");
     }
 
-    private static double calculatePrice(List<Autodiel> vsetkyAutodiely) {
+    private static double vypocitajCenu(List<Autodiel> vsetkyAutodiely) {
         IPolozkyFaktury visitor = new PolozkyFakturyVisitor();
         double sum = 0;
         for (Autodiel autodiel : vsetkyAutodiely) {
