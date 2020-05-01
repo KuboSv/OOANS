@@ -2,7 +2,8 @@ package Scenare;
 
 import Controller.SpravcaAutodielov;
 import Controller.SpravcaObjednavaniaAutodielov;
-import Model.*;
+import Model.Autodiel;
+import Model.Mechanik;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.util.List;
 public class Scenar03 {
     public static void main(String[] args) throws IOException {
 
-        Mechanik mechanik = new Mechanik("Jakub", "Jusko",true);
+        Mechanik mechanik = new Mechanik("Jakub", "Jusko", true);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
 
