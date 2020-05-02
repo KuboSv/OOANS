@@ -4,7 +4,7 @@ import Model.Autodiel;
 import Model.ServisnyZakrok;
 import Model.Vozidlo;
 import Model.Zakaznik;
-import Visitor.IPolozkyFaktury;
+import Visitor.Visitor;
 import Visitor.PolozkyFakturyVisitor;
 
 import java.util.List;
@@ -44,7 +44,7 @@ public class VystavFakturuZaDiely extends ProcesVytvoreniaFaktury {
     }
 
     private static double vypocitajCenu(List<Autodiel> vsetkyAutodiely) {
-        IPolozkyFaktury visitor = new PolozkyFakturyVisitor();
+        Visitor visitor = new PolozkyFakturyVisitor();
         double sum = 0;
         for (Autodiel autodiel : vsetkyAutodiely) {
             sum = sum + autodiel.accept(visitor);

@@ -5,6 +5,7 @@ import java.util.List;
 
 import Controller.*;
 import Model.*;
+import memento.ObjednavkaMemento;
 import state.*;
 import strategy.*;
 
@@ -55,12 +56,13 @@ public class Scenar01 {
 				
 				System.out.print("Chces zavazne objednat A/N, v pripade Nie bude tvoja objednavka zrusena:");
 				String potvrd = reader.readLine();
+				ObjednavkaMemento om = null;
 						
 				if (potvrd.equals("A")) {
 					
 					// Ak bola zavazne objednana -> spravcaObjednavok.VytvorObjednavku()
 					// STATE
-					o.setStav(VytvorenaObjednavka.INSTANCE);
+					spravcaO.vyhladajObjednavku(o.getId()).Objednaj();
 					vozidla.get(vyber-1).register(zakaznik);
 					
 					// ObjednavaciFormular.VyberSposobPlatby()
@@ -69,26 +71,41 @@ public class Scenar01 {
 					
 					//STRATEGY
 					if (sposobPlatby.equals("paypal")) {
-						o.zaplatObjednavku(new PayPal("myemail@example.com", "Heslo"));
+						spravcaO.vyhladajObjednavku(o.getId()).zaplatObjednavku(new PayPal("myemail@example.com", "Heslo"));
 					} else if (sposobPlatby.equals("karta")) {
-						o.zaplatObjednavku(new PlatbaKartou("849999 98798 98498"));
+						spravcaO.vyhladajObjednavku(o.getId()).zaplatObjednavku(new PlatbaKartou("849999 98798 98498"));
 					} else if (sposobPlatby.equals("mobil")) {
-						o.zaplatObjednavku(new PlatbaMobilom("0998741281"));
+						spravcaO.vyhladajObjednavku(o.getId()).zaplatObjednavku(new PlatbaMobilom("0998741281"));
 					}
 					
 					System.out.print("\nChces zrusit uz zaplatenu objednavku? A/N:");
 					String rollback = reader.readLine();
 					
+					
 					if (rollback.equals("A")) {
-						o.zrus();
+						om = spravcaO.vyhladajObjednavku(o.getId()).Uloz();
+						spravcaO.vyhladajObjednavku(o.getId()).zrus();
 					}
 							
 				} else if (potvrd.equals("N")) {
-					o.zrus();
+					om = spravcaO.vyhladajObjednavku(o.getId()).Uloz();
+					spravcaO.vyhladajObjednavku(o.getId()).zrus();
 				}
+				
+				spravcaO.vyhladajObjednavku(o.getId()).zrus();
+				System.out.print("\nChces zvratit zrusenie objednavky? A/N:");
+				String zvrat = reader.readLine();
+				
+				if(zvrat.equals("A")) {
+					System.out.print("\nZadaj ID objednavky:");
+					int vybr = Integer.parseInt(reader.readLine());
+					
+					spravcaO.vyhladajObjednavku(vybr).restore(om);			
+				}
+				
 				System.out.println("1 den\n2 den\n...\nPo 5 dnoch keby sa objednavka spracovala, vybrane vozidlo sa stalo nedostupne");
-				o.getVozidlo().setStav("nasrot");
-				o.getVozidlo().notifyAllObservers("Havarjina udalost", "vozidlo mala nehody a nieje v dobrom stave na prenajom");
+				spravcaO.vyhladajObjednavku(o.getId()).getVozidlo().setStav("nasrot");
+				spravcaO.vyhladajObjednavku(o.getId()).getVozidlo().notifyAllObservers("Havarjina udalost", "vozidlo mala nehody a nieje v dobrom stave na prenajom");
 				
 				System.out.print("\nChces znovu objednavat A/N:");
 				String znovu = reader.readLine();
@@ -101,10 +118,7 @@ public class Scenar01 {
 	    }
 	    
 	    zakaznik.vypisNotifikacie();
-	    
-	    
-	    
-	    
+
 		// Alternativny scenar
 		// ObjednavaciFormular.VyberPoistenie()
 		// spravcaPoistenia.vyhladajPoistenie()

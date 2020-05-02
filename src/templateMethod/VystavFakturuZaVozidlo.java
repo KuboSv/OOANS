@@ -4,6 +4,7 @@ import Model.Vozidlo;
 import Model.Zakaznik;
 
 public class VystavFakturuZaVozidlo extends ProcesVytvoreniaFaktury {
+	
     public VystavFakturuZaVozidlo(Zakaznik zakaznik, Vozidlo vozidlo) {
         this.vozidlo = vozidlo;
         this.zakaznik = zakaznik;

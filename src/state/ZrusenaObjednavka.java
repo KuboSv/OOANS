@@ -11,7 +11,7 @@ public enum ZrusenaObjednavka implements StavObjednavky {
 	@Override
 	public void zrus(Objednavka objednavka) {
 		System.out.println("Zrusena objednavka bola odstranena");
-		objednavka = null;
+		objednavka.setStav(null);
 		
 	}
 

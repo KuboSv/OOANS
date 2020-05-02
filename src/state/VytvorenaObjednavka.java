@@ -11,6 +11,7 @@ public enum VytvorenaObjednavka implements StavObjednavky {
 	@Override
 	public void zrus(Objednavka objednavka) {
 		System.out.println("Vytvorena objednavka bola oznacena na zrusenia, cakaj na vratenie zaplatenej ciastky ...");
+		objednavka.setStav(ZrusenaObjednavka.INSTANCE);
 	}
 
 }

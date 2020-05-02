@@ -1,5 +1,5 @@
 package Visitor;
 
 public interface Polozka {
-    public double accept(IPolozkyFaktury visitor);
+    public double accept(Visitor visitor);
 }

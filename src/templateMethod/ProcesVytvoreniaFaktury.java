@@ -4,13 +4,11 @@ import Model.Vozidlo;
 import Model.Zakaznik;
 
 public abstract class ProcesVytvoreniaFaktury {
+	
     Vozidlo vozidlo;
     Zakaznik zakaznik;
 
-    public ProcesVytvoreniaFaktury() {
-    }
-
-    public void vystavFakturu() {
+    public final void vystavFakturu() {
         pridajOsobneUdaje();
         pridajZodpovednuOsobu();
         pridajPolozkyFaktury();

@@ -1,9 +1,10 @@
 package Model;
 
-import Visitor.IPolozkyFaktury;
+import Visitor.Visitor;
 import Visitor.Polozka;
 
 public class Autodiel implements Polozka {
+	
     private int id;
     private String ean;
     private String nazov;
@@ -79,7 +80,7 @@ public class Autodiel implements Polozka {
     }
 
     @Override
-    public double accept(IPolozkyFaktury visitor) {
+    public double accept(Visitor visitor) {
         return visitor.visit(this);
     }
 }

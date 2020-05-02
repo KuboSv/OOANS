@@ -18,7 +18,9 @@ public class Zakaznik extends Pouzivatel  implements Observer{
         while (iterator.hasNext()) 
         { 
             Notifikacia n = (Notifikacia)iterator.next(); 
+            if (n.getDatum().contains("2020")){
             System.out.println(n.getPredmet()+" "+n.getTelo()); 
+            }
         } 
 	}
 

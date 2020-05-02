@@ -1,4 +1,5 @@
 package Model;
+import memento.ObjednavkaMemento;
 import state.*;
 import strategy.*;
 
@@ -22,6 +23,7 @@ public class Objednavka {
 		this.vozidlo = vozidlo;
 		this.zakaznik = zakaznik;
 	}
+	
 	public int getId() {
 		return id;
 	}
@@ -65,20 +67,16 @@ public class Objednavka {
 		this.zakaznik = zakaznik;
 	}
 	
-	public void Expeduj() {
-		
+	public void Spracuj() {
+		this.setStav(SpracovanaObjednavka.INSTANCE);
 	}
 
 	public void Objednaj() {
-		
+		this.setStav(VytvorenaObjednavka.INSTANCE);
 	}
 	
-	public void Odosli() {
-		
-	}
-	
-	public void Uloz() {
-		
+	public ObjednavkaMemento Uloz() {
+		return this.createMemento();
 	}
 	
 	public double vypocitajCenu(){
@@ -91,6 +89,20 @@ public class Objednavka {
 	
 	public void zrus() {
 		this.getStav().zrus(this);
+	}
+	
+	public ObjednavkaMemento createMemento(){
+		ObjednavkaMemento m = new ObjednavkaMemento(id, CelkovaCena, predajca, sposobPlatby, stav, vozidlo, zakaznik);
+	    return m;
+	}
+	     
+	public void restore(ObjednavkaMemento m) {
+    	this.id = m.getId();
+		this.CelkovaCena = m.getCelkovaCena();
+		this.predajca = m.getPredajca();
+		this.stav = m.getStav();
+		this.vozidlo = m.getVozidlo();
+		this.zakaznik = m.getZakaznik();
 	}
 	
 }

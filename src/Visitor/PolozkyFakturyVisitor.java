@@ -2,7 +2,7 @@ package Visitor;
 
 import Model.Autodiel;
 
-public class PolozkyFakturyVisitor implements IPolozkyFaktury {
+public class PolozkyFakturyVisitor implements Visitor {
 
     @Override
     public double visit(Autodiel autodiel) {
