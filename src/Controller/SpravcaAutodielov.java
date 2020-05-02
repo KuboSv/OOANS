@@ -41,14 +41,13 @@ public class SpravcaAutodielov {
 
         List<Autodiel> au = new ArrayList<Autodiel>();
 
-        for (int i = 0; i < this.autodiely.size(); i++) {
-            if (this.autodiely.get(i).getEan().equals(ean)) {
-                int aktualneMnozstvo = this.autodiely.get(i).getMnozstvo();
-                if (mnozstvo > aktualneMnozstvo) {
-                    System.out.println("Nedostatok tovaru na sklade!");
-                } else {
-                    this.autodiely.get(i).setMnozstvo(aktualneMnozstvo - mnozstvo);
+        for (Autodiel autodiel : this.autodiely) {
+            if (autodiel.getEan().equals(ean)) {
+                if(autodiel.znizZasoby(mnozstvo)){
                     System.out.println("Stav Zasob bol Znizeny!");
+                }
+                else {
+                    System.out.println("Nedostatok tovaru na sklade!");
                 }
             }
         }

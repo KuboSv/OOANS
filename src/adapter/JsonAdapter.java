@@ -4,11 +4,11 @@ import Model.APIDodavatela1;
 
 import java.util.List;
 
-public class Adapter1 implements Dodavatel {
+public class JsonAdapter implements Dodavatel {
 
     private APIDodavatela1 api;
 
-    public Adapter1(APIDodavatela1 api) {
+    public JsonAdapter(APIDodavatela1 api) {
         this.api = api;
     }
 

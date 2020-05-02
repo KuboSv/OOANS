@@ -16,7 +16,11 @@ public class SpravcaMechanikov {
     }
 
     public void priradVozidloMechanikovi(Vozidlo vozidlo) {
-        //TODO chain
+        for (Mechanik mechanik : mechanikovia) {
+            if (!mechanik.isZaneprezdneny()) {
+                mechanik.pridajVozidlo(vozidlo);
+            }
+        }
     }
 
     public List<Mechanik> getMechanikovia() {

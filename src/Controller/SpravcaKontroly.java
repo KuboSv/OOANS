@@ -4,8 +4,6 @@ import Model.Mechanik;
 import Model.ServisnyZakrok;
 import Model.Vozidlo;
 
-import javax.swing.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SpravcaKontroly {
@@ -16,8 +14,8 @@ public class SpravcaKontroly {
 
         SpravcaMechanikov spravcaM = new SpravcaMechanikov();
         this.prihlasenyMechanik = spravcaM.getMechanikovia().get(0);
-        this.prihlasenyMechanik.pridajPriradeneVozidla(new Vozidlo(1, "SEDAN", "BMW", "nakontrolu", 12040, false));
-        this.prihlasenyMechanik.pridajPriradeneVozidla(new Vozidlo(2, "COMBI", "SKODA", "nakontrolu", 9800, true));
+        this.prihlasenyMechanik.pridajVozidlo(new Vozidlo(1, "SEDAN", "BMW", "nakontrolu", 12040, false));
+        this.prihlasenyMechanik.pridajVozidlo(new Vozidlo(2, "COMBI", "SKODA", "nakontrolu", 9800, true));
 
     }
 

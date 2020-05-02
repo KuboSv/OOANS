@@ -83,4 +83,14 @@ public class Autodiel implements Polozka {
     public double accept(Visitor visitor) {
         return visitor.visit(this);
     }
+
+    public boolean znizZasoby(int mnozstvo) {
+        if(mnozstvo<=this.mnozstvo){
+            this.mnozstvo-=mnozstvo;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

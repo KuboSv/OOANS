@@ -63,7 +63,6 @@ public class SpravcaVozidiel {
         Vozidlo vozidlo = vozidla.get(vozidla.size() - 1);
         SpravcaMechanikov spravcaM = new SpravcaMechanikov();
         spravcaM.priradVozidloMechanikovi(vozidlo);
-        System.out.println(vozidlo);
-
+        System.out.println("Vozidlo bolo priradene mechanikovi!");
     }
 }

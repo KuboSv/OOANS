@@ -16,7 +16,11 @@ public class Mechanik extends Pouzivatel {
         return priradeneVozidla;
     }
 
-    public void pridajPriradeneVozidla(Vozidlo priradeneVozidlo) {
+    public boolean isZaneprezdneny() {
+        return zaneprezdneny;
+    }
+
+    public void pridajVozidlo(Vozidlo priradeneVozidlo) {
         this.priradeneVozidla.add(priradeneVozidlo);
     }
 }

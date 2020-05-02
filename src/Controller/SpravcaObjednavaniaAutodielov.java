@@ -2,8 +2,8 @@ package Controller;
 
 import Model.APIDodavatela1;
 import Model.APIDodavatela2;
-import adapter.Adapter1;
-import adapter.Adapter2;
+import adapter.JsonAdapter;
+import adapter.XmlAdapter;
 
 import java.util.List;
 
@@ -13,12 +13,12 @@ public class SpravcaObjednavaniaAutodielov {
     public List<String> vyhladajProdukt(String ean) {
 
         APIDodavatela1 api = new APIDodavatela1();
-        Adapter1 adapter1 = new Adapter1(api);
-        List<String> najdenyProdukt1 = adapter1.VyhladajProdukt(ean);
+        JsonAdapter jsonAdapter = new JsonAdapter(api);
+        List<String> najdenyProdukt1 = jsonAdapter.VyhladajProdukt(ean);
 
         APIDodavatela2 api2 = new APIDodavatela2();
-        Adapter2 adapter2 = new Adapter2(api2);
-        List<String> najdenyProdukt2 = adapter2.VyhladajProdukt(ean);
+        XmlAdapter xmlAdapter = new XmlAdapter(api2);
+        List<String> najdenyProdukt2 = xmlAdapter.VyhladajProdukt(ean);
 
         if (Integer.parseInt(najdenyProdukt1.get(1)) < Integer.parseInt(najdenyProdukt2.get(1))) {
             zvolDodavatela = 1;
@@ -33,12 +33,12 @@ public class SpravcaObjednavaniaAutodielov {
 
         if (zvolDodavatela == 1) {
             APIDodavatela1 api = new APIDodavatela1();
-            Adapter1 adapter1 = new Adapter1(api);
-            return adapter1.VytvorObjednavku(ean, mnozstvo, priezvisko);
+            JsonAdapter jsonAdapter = new JsonAdapter(api);
+            return jsonAdapter.VytvorObjednavku(ean, mnozstvo, priezvisko);
         } else if (zvolDodavatela == 2) {
             APIDodavatela2 api2 = new APIDodavatela2();
-            Adapter2 adapter2 = new Adapter2(api2);
-            return adapter2.VytvorObjednavku(ean, mnozstvo, priezvisko);
+            XmlAdapter xmlAdapter = new XmlAdapter(api2);
+            return xmlAdapter.VytvorObjednavku(ean, mnozstvo, priezvisko);
         }
         return false;
     }

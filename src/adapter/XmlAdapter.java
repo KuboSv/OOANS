@@ -4,11 +4,11 @@ import Model.APIDodavatela2;
 
 import java.util.List;
 
-public class Adapter2 implements Dodavatel {
+public class XmlAdapter implements Dodavatel {
 
     private APIDodavatela2 api;
 
-    public Adapter2(APIDodavatela2 api) {
+    public XmlAdapter(APIDodavatela2 api) {
         this.api = api;
     }
 
