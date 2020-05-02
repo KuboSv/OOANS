@@ -86,6 +86,9 @@ public class Scenar01 {
 					if (rollback.equals("A")) {
 						spravcaH.pridajMemento(spravcaO.vyhladajObjednavku(o.getId()).Uloz());
 						spravcaO.vyhladajObjednavku(o.getId()).zrus();
+
+					} else if (rollback.equals("N")){
+						
 					}
 							
 				} else if (potvrd.equals("N")) {

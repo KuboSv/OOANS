@@ -73,6 +73,7 @@ public class Objednavka {
 
 	public void Objednaj() {
 		this.setStav(VytvorenaObjednavka.INSTANCE);
+		System.out.println("Objednavka bola objednava..");
 	}
 	
 	public ObjednavkaMemento Uloz() {

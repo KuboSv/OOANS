@@ -5,11 +5,10 @@ import observer.Observer;
 
 public class Zakaznik extends Pouzivatel  implements Observer{
 
-	private Kolekcia notifikacie; 
+	private KolekciaNotifikacii notifikacie = new KolekciaNotifikacii(); 
 
 	public Zakaznik(String meno, String priezvisko) {
 		super(meno, priezvisko);
-		this.notifikacie = new KolekciaNotifikacii();
 	}
 	
 	public void vypisNotifikacie() {
