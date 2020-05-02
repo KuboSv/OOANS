@@ -3,9 +3,9 @@ package iterator;
 import java.util.ArrayList;
 import java.util.List;
 
-import Model.Notifikacia;
+import Model.*;
 
-public class NotificationCollection implements Collection {
+public class KolekciaNotifikacii implements Kolekcia {
 	
 	private List<Notifikacia> notifikacie = new ArrayList<Notifikacia>();
 	
@@ -15,7 +15,7 @@ public class NotificationCollection implements Collection {
 
 	@Override
 	public Iterator createIterator() {
-		return new NotificationIterator(notifikacie); 
+		return new IteratorNotifikacii(notifikacie); 
 	}
 
 }

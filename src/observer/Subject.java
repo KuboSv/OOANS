@@ -2,8 +2,8 @@ package observer;
 
 public interface Subject {
 	
-	public void register(Observer o);
-	public void unregister(Observer o);
-	public void notifyAllObservers(String predmet, String telo);
+	public void registruj(Observer o);
+	public void odregistruj(Observer o);
+	public void notifikujObserverou(String predmet, String telo);
 	
 }

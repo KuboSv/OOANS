@@ -18,6 +18,7 @@ public class Scenar01 {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
 		SpravcaObjednavok spravcaO = new SpravcaObjednavok();
 		SpravcaVozidiel spravcaV= new SpravcaVozidiel();
+		SpravcaHistorieObjednavok spravcaH = new SpravcaHistorieObjednavok();
 		
 		boolean koniec = false;
 	    while(koniec == false){
@@ -45,7 +46,7 @@ public class Scenar01 {
 				}
 					
 				for (int i1 = 0; i1 < vozidla.size(); i1++) {
-					System.out.printf("ID dostupneho vozidla znacky %s a cenou %f € = %d\n",vozidla.get(i1).getZnacka(), vozidla.get(i1).getNakupnaCena(), i1+1);
+					System.out.printf("ID dostupneho vozidla znacky %s a cenou %f ï¿½ = %d\n",vozidla.get(i1).getZnacka(), vozidla.get(i1).getNakupnaCena(), i1+1);
 				}
 				
 				System.out.print("=================================================\nZadaj ID vozidla, ktore chces zavazne objednat:");
@@ -63,7 +64,7 @@ public class Scenar01 {
 					// Ak bola zavazne objednana -> spravcaObjednavok.VytvorObjednavku()
 					// STATE
 					spravcaO.vyhladajObjednavku(o.getId()).Objednaj();
-					vozidla.get(vyber-1).register(zakaznik);
+					vozidla.get(vyber-1).registruj(zakaznik);
 					
 					// ObjednavaciFormular.VyberSposobPlatby()
 					System.out.print("Zadaj druh platby:");
@@ -83,12 +84,12 @@ public class Scenar01 {
 					
 					
 					if (rollback.equals("A")) {
-						om = spravcaO.vyhladajObjednavku(o.getId()).Uloz();
+						spravcaH.pridajMemento(spravcaO.vyhladajObjednavku(o.getId()).Uloz());
 						spravcaO.vyhladajObjednavku(o.getId()).zrus();
 					}
 							
 				} else if (potvrd.equals("N")) {
-					om = spravcaO.vyhladajObjednavku(o.getId()).Uloz();
+					spravcaH.pridajMemento(spravcaO.vyhladajObjednavku(o.getId()).Uloz());
 					spravcaO.vyhladajObjednavku(o.getId()).zrus();
 				}
 				
@@ -99,13 +100,12 @@ public class Scenar01 {
 				if(zvrat.equals("A")) {
 					System.out.print("\nZadaj ID objednavky:");
 					int vybr = Integer.parseInt(reader.readLine());
-					
-					spravcaO.vyhladajObjednavku(vybr).restore(om);			
+					spravcaO.vyhladajObjednavku(vybr).restore(spravcaH.vyhladajhistorickuObjednavku(vybr));			
 				}
 				
 				System.out.println("1 den\n2 den\n...\nPo 5 dnoch keby sa objednavka spracovala, vybrane vozidlo sa stalo nedostupne");
 				spravcaO.vyhladajObjednavku(o.getId()).getVozidlo().setStav("nasrot");
-				spravcaO.vyhladajObjednavku(o.getId()).getVozidlo().notifyAllObservers("Havarjina udalost", "vozidlo mala nehody a nieje v dobrom stave na prenajom");
+				spravcaO.vyhladajObjednavku(o.getId()).getVozidlo().notifikujObserverou("Havarjina udalost", "vozidlo mala nehody a nieje v dobrom stave na prenajom");
 				
 				System.out.print("\nChces znovu objednavat A/N:");
 				String znovu = reader.readLine();

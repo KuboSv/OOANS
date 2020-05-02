@@ -65,17 +65,17 @@ public class Vozidlo implements Subject {
 	}
 
 	@Override
-	public void register(Observer o) {
+	public void registruj(Observer o) {
 		observery.add(o);
 	}
 
 	@Override
-	public void unregister(Observer o) {
+	public void odregistruj(Observer o) {
 		observery.remove(o);
 	}
 
 	@Override
-	public void notifyAllObservers(String predmet, String telo) {
+	public void notifikujObserverou(String predmet, String telo) {
 		for(Observer follower : observery){	
 			follower.update(new Notifikacia("29.5.2020",predmet,telo));
 		}

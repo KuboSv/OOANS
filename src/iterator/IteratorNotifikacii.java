@@ -4,7 +4,7 @@ import java.util.List;
 
 import Model.Notifikacia;
 
-public class NotificationIterator implements Iterator {
+public class IteratorNotifikacii implements Iterator {
 
 	int pos = 0; 
 	private List<Notifikacia> notifikacie;
@@ -26,7 +26,7 @@ public class NotificationIterator implements Iterator {
 	}
 	
 
-	public NotificationIterator(List<Notifikacia> notifikacie) {
+	public IteratorNotifikacii(List<Notifikacia> notifikacie) {
 		this.notifikacie = notifikacie;
 	}
 

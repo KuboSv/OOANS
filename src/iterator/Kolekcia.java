@@ -1,5 +1,5 @@
 package iterator;
 
-public interface Collection {
+public interface Kolekcia {
 	public Iterator createIterator(); 
 }

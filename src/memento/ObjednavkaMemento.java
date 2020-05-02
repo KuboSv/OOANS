@@ -69,6 +69,4 @@ public class ObjednavkaMemento {
 	public void setZakaznik(Zakaznik zakaznik) {
 		this.zakaznik = zakaznik;
 	}
-	
-	
 }
