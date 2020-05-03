@@ -1,9 +1,6 @@
 package templateMethod;
 
-import Model.Autodiel;
-import Model.ServisnyZakrok;
-import Model.Vozidlo;
-import Model.Zakaznik;
+import Model.*;
 import Visitor.Visitor;
 import Visitor.PolozkyFakturyVisitor;
 
@@ -11,9 +8,10 @@ import java.util.List;
 
 public class VystavFakturuZaDiely extends ProcesVytvoreniaFaktury {
 
-    public VystavFakturuZaDiely(Zakaznik zakaznik, Vozidlo vozidlo) {
+    public VystavFakturuZaDiely(Predajca predajca, Zakaznik zakaznik, Vozidlo vozidlo) {
         this.vozidlo = vozidlo;
         this.zakaznik = zakaznik;
+        this.predajca = predajca;
     }
 
     @Override
@@ -45,8 +43,10 @@ public class VystavFakturuZaDiely extends ProcesVytvoreniaFaktury {
 
     private static double vypocitajCenu(List<Autodiel> vsetkyAutodiely) {
         Visitor visitor = new PolozkyFakturyVisitor();
+        System.out.println("Polozky faktury:");
         double sum = 0;
         for (Autodiel autodiel : vsetkyAutodiely) {
+            System.out.println(autodiel.getNazov()+": "+ autodiel.getMnozstvo() + " x " +autodiel.getCena()+"E");
             sum = sum + autodiel.accept(visitor);
         }
         return sum;

@@ -2,11 +2,9 @@ package Controller;
 
 import java.util.*;
 
+import Model.Predajca;
 import Model.Vozidlo;
 import Model.Zakaznik;
-import templateMethod.ProcesVytvoreniaFaktury;
-import templateMethod.VystavFakturuZaDiely;
-import templateMethod.VystavFakturuZaVozidlo;
 
 public class SpravcaVozidiel {
 
@@ -51,12 +49,12 @@ public class SpravcaVozidiel {
         return dostupne;
     }
 
-    public void zaevidujVozidlo(Zakaznik zakaznik, String druh, String znacka, int cena) {
+    public SpravcaFaktur zaevidujVozidlo(Predajca predajca, Zakaznik zakaznik, String druh, String znacka, int cena) {
         Vozidlo vozidlo = new Vozidlo(10, druh, znacka, "pripaveneNaKontrolu", cena, false);
         vozidla.add(vozidlo);
 
-        SpravcaFaktur faktura = new SpravcaFaktur(zakaznik, vozidlo);
-        faktura.vystavFakturuZaVozidlo();
+        SpravcaFaktur faktura = new SpravcaFaktur(predajca, zakaznik, vozidlo);
+        return faktura;
     }
 
     public void dokonciZaevidovanie() {

@@ -13,7 +13,7 @@ public class Scenar05 {
 
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Proces kontroly noveho vozidla!");
+        System.out.println("Proces kontroly noveho vozidla!\n----------------------");
 
         SpravcaKontroly spravcaK = new SpravcaKontroly();
         List<Vozidlo> vozidla = spravcaK.vyhladajVozidlaMechanika();

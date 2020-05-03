@@ -16,7 +16,7 @@ public class APIDodavatela1 {
         //some api logic
         List<String> test = new ArrayList<>();
         if (ean.equals("0124")) {
-            test.add("brzdovyOlej");
+            test.add("brzdovaKvapalina");
             test.add("3");
         } else {
             test.add("brzdoveDosticky");

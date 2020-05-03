@@ -11,7 +11,7 @@ public class Scenar06 {
 
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Proces vyplatenia vyplat!");
+        System.out.println("Proces vyplatenia vyplat!\n----------------------");
         SpravcaUctovnictva spravcaU = new SpravcaUctovnictva();
 
         System.out.print("Naozaj chces odoslat vyplaty: A/N? ");

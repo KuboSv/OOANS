@@ -1,6 +1,8 @@
 package Scenare;
 
+import Controller.SpravcaFaktur;
 import Controller.SpravcaVozidiel;
+import Model.Predajca;
 import Model.Zakaznik;
 
 import java.io.BufferedReader;
@@ -13,13 +15,14 @@ public class Scenar04 {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
+        Predajca predajca = new Predajca("Tomas","Hromada");
 
         SpravcaVozidiel spravcaV = new SpravcaVozidiel();
-        System.out.println("Proces pridania noveho vozidla!");
-        System.out.print("Zadaj meno predajcu:");
+        System.out.println("Proces pridania noveho vozidla!\n----------------------");
+        System.out.print("Zadaj meno vlastnika:");
         String meno = reader.readLine();
 
-        System.out.print("Zadaj prizvisko predajcu:");
+        System.out.print("Zadaj priezvisko vlastnika:");
         String priezvisko = reader.readLine();
 
         Zakaznik zakaznik = new Zakaznik(meno, priezvisko);
@@ -36,11 +39,22 @@ public class Scenar04 {
         if (potvrdenie.equals("N")) {
             return;
         }
-        spravcaV.zaevidujVozidlo(zakaznik, druh, znacka, cena);
+        SpravcaFaktur faktura = spravcaV.zaevidujVozidlo(predajca, zakaznik, druh, znacka, cena);
 
+        System.out.print("Chces vystavit fakturu: A/N? ");
+        String potvrdenieFaktury = reader.readLine();
+        System.out.println("----------------------");
+        if (potvrdenieFaktury.equals("A")) {
+            faktura.vystavFakturuZaVozidlo();
+        }
+        else{
+            System.out.println("Proces pridania noveho vozdila bol zruseny!");
+            return;
+        }
 
-        System.out.print("chces vystavit splnomocnenie: A/N? ");
+        System.out.print("Chces vystavit splnomocnenie: A/N? ");
         String splnomocnenie = reader.readLine();
+        System.out.println("----------------------");
         if (splnomocnenie.equals("A")) {
             //vystav splnomocnenie alt
         }

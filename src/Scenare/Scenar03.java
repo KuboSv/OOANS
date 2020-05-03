@@ -15,7 +15,7 @@ public class Scenar03 {
 
         Mechanik mechanik = new Mechanik("Jakub", "Jusko", true);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
+        System.out.println("Proces vyhladania Autodielu!\n----------------------");
 
         SpravcaAutodielov spravcaA = new SpravcaAutodielov();
 
@@ -42,7 +42,7 @@ public class Scenar03 {
 
         } else {
             SpravcaObjednavaniaAutodielov spravcaOA = new SpravcaObjednavaniaAutodielov();
-            System.out.print("Spusteny proces objenavania!\n");
+            System.out.println("Spusteny proces objenavania!\n----------------------");
             System.out.print("Zadaj ean autodielu:");
             eanDielu = reader.readLine();
 
