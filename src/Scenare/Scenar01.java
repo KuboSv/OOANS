@@ -108,7 +108,6 @@ public class Scenar01 {
 				
 				System.out.println("1 den\n2 den\n...\nPo 5 dnoch keby sa objednavka spracovala, vybrane vozidlo sa stalo nedostupne");
 				spravcaO.vyhladajObjednavku(o.getId()).getVozidlo().setStav("nasrot");
-				spravcaO.vyhladajObjednavku(o.getId()).getVozidlo().notifikujObserverou("Havarjina udalost", "vozidlo mala nehody a nieje v dobrom stave na prenajom");
 				
 				System.out.print("\nChces znovu objednavat A/N:");
 				String znovu = reader.readLine();

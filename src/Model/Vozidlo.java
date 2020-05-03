@@ -50,6 +50,7 @@ public class Vozidlo implements Subject {
 	}
 	public void setStav(String stav) {
 		this.stav = stav;
+		this.notifikujObserverou("Havarjina udalost", "vozidlo mala nehody a nieje v dobrom stave na prenajom");
 	}
 	public double getNakupnaCena() {
 		return nakupnaCena;
