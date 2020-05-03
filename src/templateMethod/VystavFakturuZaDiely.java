@@ -14,18 +14,9 @@ public class VystavFakturuZaDiely extends ProcesVytvoreniaFaktury {
         this.predajca = predajca;
     }
 
-    @Override
-    void vytlac() {
-        System.out.println("Faktura bola Vylacena!");
-    }
 
     @Override
-    void pridajZodpovednuOsobu() {
-        System.out.println("Boli pridane udaje o zodpovednej osobe!");
-    }
-
-    @Override
-    void pridajPolozkyFaktury() {
+    protected void pridajPolozkyFaktury() {
         ServisnyZakrok servisnyZ = new ServisnyZakrok("oprava", "Tichy", 1, "Vymeneny motorovy olej, brzdova kvapalina..");
         servisnyZ.pridajAutodiely(new Autodiel(1, "0123", "motorovyOlej", 7, true, "A1", 5.54));
         servisnyZ.pridajAutodiely(new Autodiel(2, "0124", "brzdovaKvapalina", 2, true, "A1", 4.01));
@@ -52,8 +43,4 @@ public class VystavFakturuZaDiely extends ProcesVytvoreniaFaktury {
         return sum;
     }
 
-    @Override
-    void pridajOsobneUdaje() {
-        System.out.println("Boli pridane udaje zakaznika!");
-    }
 }
