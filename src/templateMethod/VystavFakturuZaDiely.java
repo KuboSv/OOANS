@@ -27,17 +27,19 @@ public class VystavFakturuZaDiely extends ProcesVytvoreniaFaktury {
 
 
         List<Autodiel> vsetkyAutodiely = servisnyZ.getAutodiely();
+        for (Autodiel autodiel : vsetkyAutodiely) {
+            System.out.println(autodiel.getNazov()+": "+ autodiel.getMnozstvo() + " x " +autodiel.getCena()+"E");
+        }
         double cena = vypocitajCenu(vsetkyAutodiely);
         System.out.println("Celkova cena = " + cena);
         System.out.println("Boli pridane autodiely do Faktury!");
     }
 
-    private static double vypocitajCenu(List<Autodiel> vsetkyAutodiely) {
+    private double vypocitajCenu(List<Autodiel> vsetkyAutodiely) {
         Visitor visitor = new PolozkyFakturyVisitor();
         System.out.println("Polozky faktury:");
         double sum = 0;
         for (Autodiel autodiel : vsetkyAutodiely) {
-            System.out.println(autodiel.getNazov()+": "+ autodiel.getMnozstvo() + " x " +autodiel.getCena()+"E");
             sum = sum + autodiel.accept(visitor);
         }
         return sum;

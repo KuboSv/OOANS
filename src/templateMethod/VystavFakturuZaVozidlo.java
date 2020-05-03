@@ -16,6 +16,7 @@ public class VystavFakturuZaVozidlo extends ProcesVytvoreniaFaktury {
     protected void pridajPolozkyFaktury() {
         System.out.println("Polozky faktury:");
         System.out.println(vozidlo.getZnacka()+" "+vozidlo.getDruh()+": "+vozidlo.getNakupnaCena());
+        System.out.println("Celkova cena = " + vozidlo.getNakupnaCena());
         System.out.println("Bolo pridane vozidlo do Faktury!");
     }
 }
